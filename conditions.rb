@@ -7,13 +7,13 @@ months = ["January", "February", "March", "April", "May", "June", "July", "Augus
 # if the string contains sub-string or letter passed to the method
 # write a loop which outputs months which do not begin with the letter "J"
 
+months.each do |month|
+	if not month.include? "J"
+		puts month
+	end
+end
 
-
-
-
-
-
-
+# puts month if not month.include? "J"
 
 puts "\n--------------------" # line to distinguish exercise output
 
@@ -37,11 +37,32 @@ loop do
 
 	input = $stdin.gets.chomp
 
-	break
+	if input == "quit"
+		puts "Bye!"
+		puts "Game Over"
+		break
+	end
+
+	# Turn my input into an integer
+	input = input.to_i
+	unless months[input - 1] == random_month
+		puts "Game Over!"
+		break
+	end
+
 end
 
+grade = 82
 
 
+choice = $stdin.gets.chomp 
+
+result = case grade
+	when 0..60 then "F"
+	when 61..70 then "C"
+	when 71..80 then "B"
+	else "A"
+end
 
 
 
